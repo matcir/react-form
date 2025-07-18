@@ -43,7 +43,13 @@ function App() {
 
   function handleSubmit(e){
     e.preventDefault()
-    setArticles([...articles, {id:(articles.length+1), name:newArticle, description:""}])
+    setArticles([...articles, {id:(articles.length), name:newArticle, description:""}])
+  }
+
+  function handleDeleteClick(index){
+    articles.splice(index, 1)
+    setArticles([...articles])
+    
   }
 
 
@@ -53,8 +59,8 @@ function App() {
           <h1>Articoli</h1>
 
           <ul className='mt-3 list-group'>
-            {articles.map((article) => (
-              <li key={article.id} className='list-group-item'>{article.name}</li>
+            {articles.map((article,index) => (
+              <li key={index} className='d-flex justify-content-between list-group-item'>{article.name} <button className='btn'><i className='bi bi-trash'onClick={() => handleDeleteClick(index)}></i></button> </li>
             ))}
           </ul>
 
