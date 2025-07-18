@@ -53,12 +53,13 @@ function App() {
 
   function handleSaveClick(index) {
 
-    const updatedArticles = [...articles];
-    updatedArticles[index] = {
-      ...updatedArticles[index],
+    // const updatedArticles = [...articles];
+    articles[index] = {
+      ...articles[index],
       name: editedName
     }
-    setArticles(updatedArticles)
+
+    setArticles([...articles])
     setEditingIndex(null); 
 }
 
