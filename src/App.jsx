@@ -40,9 +40,8 @@ function App() {
     setArticles([...articles, {id:(articles.length), name:newArticle, description:""}])
   }
 
-  function handleDeleteClick(index){
-    articles.splice(index, 1)
-    setArticles([...articles])
+  function handleDeleteClick(id){
+    setArticles(prev => prev.filter((article) => article.id !== id))
     
   }
 
